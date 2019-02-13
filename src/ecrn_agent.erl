@@ -193,9 +193,10 @@ normalize_seconds(State, Seconds) ->
     case Seconds - current_time(State) of
         Value when Value >= 0 ->
             Value;
-        _C:_R:Stacktrace ->
+        _ ->
+        %% _C:_R:Stacktrace ->
             %% erlang:display(erlang:get_stacktrace()),
-            erlang:display(Stacktrace),
+            %% erlang:display(Stacktrace),
             throw(invalid_once_exception)
     end.
 
